@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>XOX Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>XOX Oyunu</h1>
+    <table>
+      <tr>
+        <td id="cell00"></td>
+        <td id="cell01"></td>
+        <td id="cell02"></td>
+      </tr>
+      <tr>
+        <td id="cell10"></td>
+        <td id="cell11"></td>
+        <td id="cell12"></td>
+      </tr>
+      <tr>
+        <td id="cell20"></td>
+        <td id="cell21"></td>
+        <td id="cell22"></td>
+      </tr>
+    </table>
+    <p id="turn">Oyuna başlamak için X veya O seçin.</p>
+    <button id="reset">Yeniden başlat</button>
+    <script src="script.js"></script>
+  </body>
+</html>
+<style>
+    table {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+td:hover {
+  background-color: #e6e6e6;
+}
+
+#turn {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#reset {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+<script>
+    let board = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+];
+
+let currentPlayer = 'X';
+let gameWon = false;
+
+const cells = document.querySelectorAll('td');
+const turnDisplay = document.querySelector('#turn');
+const resetButton = document.querySelector('#reset');
+
+function checkForWin() {
+  for (let i = 0; i < 3; i++) {
+    if (board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][0] !== '') {
+      return board[i][0];
+    }
+    if (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[0][i] !== '') {
+      return board[0][i];
+    }
+  }
+  if (board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[0][0] !== '') {
+    return board[0][0];
+  }
+  if (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[0][2] !== '') {
+    return board[0][2];
+  }
+  if (board.flat().every(cell => cell !== '')) {
+    return 'tie';
+  }
+  return null;
+}
+
+function displayBoard() {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      document
+
+</script>

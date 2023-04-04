@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Konut Kredi Hesapla</title>
+  </head>
+  <body>
+    <h2>Konut Kredi Hesaplama Formu</h2>
+    <form>
+      <label>Kredi Tutarı:</label>
+      <input type="number" id="krediTutar" placeholder="Kredi Tutarını Girin"><br><br>
+      <label>Vade (Ay):</label>
+      <input type="number" id="vade" placeholder="Kredi Vadesini Girin"><br><br>
+      <label>Yıllık Faiz Oranı:</label>
+      <input type="number" id="faizOrani" placeholder="Faiz Oranını Girin"><br><br>
+      <button type="button" onclick="hesapla()">Hesapla</button><br><br>
+      <label>Aylık Taksit Tutarı:</label>
+      <input type="text" id="aylikTaksit" disabled>
+    </form>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
